@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+}
+
+/* Todo App */
+.todo-app {
+    width: 400px;
+    padding: 30px;
+
+    background: white;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+    /* Căn giữa nội dung */
+    text-align: center;
+}
+
+/* Tiêu đề */
+.todo-app h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form */
+.todo-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+}
+
+/* Input */
+.todo-form input {
+    flex: 1;
+
+    padding: 12px;
+
+    border: 1px solid #ddd;
+    border-radius: 6px;
+
+    text-align: center;
+}
+
+/* Button thêm */
+.todo-form button {
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #2563eb;
+    color: white;
+
+    cursor: pointer;
+}
+
+.todo-form button:hover {
+    background: #1d4ed8;
+}
+
+/* Danh sách */
+#todoList {
+    width: 100%;
+
+    margin-top: 20px;
+
+    list-style: none;
+}
+
+/* Todo item */
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    width: 100%;
+
+    padding: 12px;
+    margin-bottom: 10px;
+}
