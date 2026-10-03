@@ -39,10 +39,15 @@ no.addEventListener("click", function () {
 
 yes.addEventListener("click", function () {
 
-    console.log("Đã bấm nút Có ❤️");
-
     hearts.forEach(function (heart) {
 
+        // Xóa animation cũ
+        heart.classList.remove("animate");
+
+        // Ép trình duyệt reset animation
+        void heart.offsetWidth;
+
+        // Thêm lại animation
         heart.classList.add("animate");
 
     });
