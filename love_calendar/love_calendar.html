@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>
+        Love Calendar ❤️
+    </title>
+
+
+    <link rel="stylesheet" href="love_calendar.css">
+
+</head>
+
+
+<body>
+
+
+    <main class="love_calendar_container">
+
+
+
+        <!-- Nhập ảnh nền -->
+
+        <label for="love_calendar_image">
+
+            Ảnh kỷ niệm ❤️
+
+        </label>
+
+
+        <input type="file" id="love_calendar_image" accept="image/*" class="love_calendar_input">
+
+
+
+
+
+        <!-- Ngày bắt đầu yêu -->
+
+        <label for="love_calendar_date">
+
+            Ngày bắt đầu yêu nhau ❤️
+
+        </label>
+
+
+
+        <input class="love_calendar_input" type="date" id="love_calendar_date">
+
+
+
+
+
+        <button type="button" class="love_calendar_button" id="love_calendar_button">
+
+
+            Xem lịch tình yêu 💕
+
+        </button>
+
+
+
+
+
+
+
+
+        <section class="calendar">
+
+
+
+
+
+            <!-- Header -->
+
+            <div class="calendar_header">
+
+
+
+                <button type="button" id="prev_month">
+
+                    ◀
+
+                </button>
+
+
+
+
+
+                <h2 id="calendar_title">
+
+                </h2>
+
+
+
+
+
+                <button type="button" id="next_month">
+
+                    ▶
+
+                </button>
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Thứ -->
+
+            <div class="week">
+
+
+                <span>T2</span>
+
+                <span>T3</span>
+
+                <span>T4</span>
+
+                <span>T5</span>
+
+                <span>T6</span>
+
+                <span>T7</span>
+
+                <span>CN</span>
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Lịch -->
+
+            <div id="calendar_days" class="days">
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <!-- Countdown -->
+
+            <section class="love_calendar_countdown">
+
+
+                <h3>
+                    ❤️ Kỷ niệm tiếp theo
+                </h3>
+
+
+
+
+                <div class="anniversary_item" id="month_anniversary">
+
+
+                </div>
+
+
+
+
+
+                <div class="anniversary_item" id="day_anniversary">
+
+
+                </div>
+
+
+
+
+
+                <div class="anniversary_item" id="year_anniversary">
+
+
+                </div>
+
+
+
+            </section>
+
+
+
+
+
+        </section>
+
+
+
+
+    </main>
+
+
+
+
+
+    <script src="love_calendar.js"></script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,829 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+}
+
+
+
+body {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background:
+        linear-gradient(135deg,
+            #ff758c,
+            #ff7eb3);
+
+    transition: .5s;
+
+}
+
+
+
+
+
+/* =====================
+   CONTAINER
+===================== */
+
+
+.love_calendar_container {
+
+    width: 520px;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(255, 255, 255, .85);
+
+    backdrop-filter:
+        blur(12px);
+
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, .25);
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+
+
+
+/*
+Ảnh nền container
+*/
+
+
+.love_calendar_container::before {
+
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        inherit;
+
+    opacity: .35;
+
+    z-index: -1;
+
+}
+
+
+
+
+
+
+/* =====================
+ TITLE
+===================== */
+
+
+.love_calendar_title {
+
+    text-align: center;
+
+    color: #ff4d6d;
+
+    margin-bottom: 25px;
+
+    font-size: 32px;
+
+}
+
+
+
+
+label {
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 8px;
+
+    color: #c9184a;
+
+    font-weight: 600;
+
+}
+
+
+
+
+
+/* =====================
+ INPUT
+===================== */
+
+
+.love_calendar_input {
+
+
+    width: 100%;
+
+
+    height: 45px;
+
+
+    padding: 0 15px;
+
+
+    border-radius: 12px;
+
+
+    border: 1px solid #ddd;
+
+
+    background: white;
+
+
+    font-size: 16px;
+
+
+}
+
+
+
+input[type="file"] {
+
+
+    padding: 10px;
+
+    height: auto;
+
+}
+
+
+
+
+
+/* =====================
+ BUTTON
+===================== */
+
+
+.love_calendar_button {
+
+
+    width: 100%;
+
+
+    height: 48px;
+
+
+    margin-top: 20px;
+
+
+    border: none;
+
+
+    border-radius: 30px;
+
+
+    background: #ff4d6d;
+
+
+    color: white;
+
+
+    font-size: 17px;
+
+
+    cursor: pointer;
+
+
+    transition: .3s;
+
+
+}
+
+
+
+.love_calendar_button:hover {
+
+
+    transform: scale(1.05);
+
+
+    box-shadow:
+        0 10px 20px rgba(255, 77, 109, .3);
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ CALENDAR
+===================== */
+
+
+.calendar {
+
+
+    margin-top: 35px;
+
+
+    background:
+        rgba(255, 255, 255, .75);
+
+
+    padding: 20px;
+
+
+    border-radius: 25px;
+
+
+}
+
+
+
+
+
+
+
+.calendar_header {
+
+
+    display: flex;
+
+
+    justify-content: space-between;
+
+
+    align-items: center;
+
+
+    margin-bottom: 20px;
+
+
+}
+
+
+
+
+.calendar_header h2 {
+
+
+    color: #ff4d6d;
+
+    font-size: 24px;
+
+}
+
+
+
+
+
+.calendar_header button {
+
+
+    width: 42px;
+
+
+    height: 42px;
+
+
+    border: none;
+
+
+    border-radius: 50%;
+
+
+    background: #ff4d6d;
+
+
+    color: white;
+
+
+    cursor: pointer;
+
+
+    font-size: 18px;
+
+
+}
+
+
+
+
+
+
+
+
+.week,
+.days {
+
+
+    display: grid;
+
+
+    grid-template-columns:
+        repeat(7, 1fr);
+
+
+    gap: 10px;
+
+
+}
+
+
+
+
+
+.week span {
+
+
+    text-align: center;
+
+
+    font-weight: bold;
+
+
+    color: #777;
+
+
+}
+
+
+
+
+
+.days {
+
+
+    margin-top: 15px;
+
+}
+
+
+
+
+
+.day,
+.empty_day {
+
+
+    height: 55px;
+
+
+    display: flex;
+
+
+    justify-content: center;
+
+
+    align-items: center;
+
+
+}
+
+
+
+
+
+
+/* =====================
+   NGÀY
+===================== */
+
+
+.day {
+
+
+    position: relative;
+
+
+    cursor: pointer;
+
+
+    font-weight: 700;
+
+
+    z-index: 1;
+
+
+    transition: .25s;
+
+
+}
+
+
+
+
+.day:hover {
+
+
+    transform: scale(1.1);
+
+
+}
+
+
+
+
+
+
+
+
+
+/*
+=====================
+ HEART
+=====================
+*/
+
+
+.day.love_day::before,
+.day.month_day::before,
+.day.special_day::before {
+
+
+    position: absolute;
+
+
+    font-size: 48px;
+
+
+    z-index: -1;
+
+
+    opacity: .45;
+
+
+    filter:
+        drop-shadow(0 3px 4px rgba(0, 0, 0, .15));
+
+
+    animation:
+        heartBeat 1.6s infinite;
+
+
+}
+
+
+
+
+
+/* ❤️ ngày bắt đầu */
+
+
+.day.love_day::before {
+
+
+    content: "❤️";
+
+}
+
+
+
+
+
+
+
+/* 💕 tháng */
+
+
+.day.month_day::before {
+
+
+    content: "💕";
+
+}
+
+
+
+
+
+
+
+/* 💛 ngày */
+
+
+.day.special_day::before {
+
+
+    content: "💛";
+
+}
+
+
+
+
+
+
+
+.day.love_day,
+.day.month_day,
+.day.special_day {
+
+
+    text-shadow:
+        0 1px 5px white;
+
+}
+
+
+
+
+
+
+.day.love_day {
+
+
+    color: #9d001f;
+
+}
+
+
+
+
+
+.day.month_day {
+
+
+    color: #c9184a;
+
+}
+
+
+
+
+
+.day.special_day {
+
+
+    color: #8a6500;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================
+   HÔM NAY
+===================== */
+
+
+.day.today {
+
+
+    border:
+
+        3px solid #ff4d6d;
+
+
+    border-radius: 50%;
+
+
+}
+
+
+
+
+
+
+.day.today::after {
+
+
+    content: "📅";
+
+
+    position: absolute;
+
+
+    top: -8px;
+
+
+    right: -5px;
+
+
+    font-size: 15px;
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ ANIMATION
+===================== */
+
+
+@keyframes heartBeat {
+
+
+    0% {
+
+        transform: scale(1);
+
+    }
+
+
+    50% {
+
+        transform: scale(1.15);
+
+    }
+
+
+    100% {
+
+        transform: scale(1);
+
+    }
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ COUNTDOWN
+===================== */
+
+
+.love_calendar_countdown {
+
+
+    margin-top: 30px;
+
+
+    padding: 20px;
+
+
+    background:
+        rgba(255, 240, 243, .9);
+
+
+    border-radius: 25px;
+
+
+}
+
+
+
+
+
+.love_calendar_countdown h3 {
+
+
+    text-align: center;
+
+
+    color: #ff4d6d;
+
+
+    margin-bottom: 20px;
+
+
+}
+
+
+
+
+
+.anniversary_item {
+
+
+    background: white;
+
+
+    padding: 15px;
+
+
+    border-radius: 18px;
+
+
+    margin-bottom: 15px;
+
+
+    box-shadow:
+
+        0 5px 15px rgba(0, 0, 0, .08);
+
+
+}
+
+
+
+
+
+.anniversary_title {
+
+
+    font-size: 17px;
+
+
+    font-weight: bold;
+
+
+    color: #c9184a;
+
+
+}
+
+
+
+
+
+.anniversary_date {
+
+
+    display: block;
+
+
+    margin-top: 8px;
+
+
+    padding-left: 10px;
+
+
+    color: #555;
+
+
+}
+
+
+
+
+
+
+
+/* =====================
+ MOBILE
+===================== */
+
+
+@media(max-width:600px) {
+
+
+    .love_calendar_container {
+
+
+        width: 95%;
+
+
+        padding: 25px;
+
+
+    }
+
+
+
+    .day,
+    .empty_day {
+
+
+        height: 42px;
+
+
+    }
+
+
+
+    .love_calendar_title {
+
+
+        font-size: 26px;
+
+
+    }
+
+
+}
